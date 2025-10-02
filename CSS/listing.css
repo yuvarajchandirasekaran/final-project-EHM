@@ -1,0 +1,1484 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Alkatra', cursive; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ---------------color choosing------------- */
+:root {
+  --primary-color: #5fb32e;
+  --secondary-color: #b6e7ce;
+  --thresary-color: #ffffff;
+  --font-color: #0C2000;
+  --focus-color: #e1f8ec;
+  --shadow-color: #479c16ab;
+  --background-color: #f3f3f5;
+  --input-background-color: inherit;
+  --input-type-hover: #ffffff;
+  --close-btn-color: #ff0000;
+  --close-btn-border-color: #d19090;
+  --icon-color: #0C2000;
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+  --task-list-bg-color: #ffffff;
+  --search-box-br-color: #e2e2e2;
+
+}
+
+.darkmode {
+  --primary-color: #5fb32e;
+  --secondary-color: #b6e7ce;
+  --thresary-color: #000000;
+  --font-color: white;
+  --focus-color: #ffffff;
+  --shadow-color: darkgreen;
+  --background-color: #191c24;
+  --icon-color: #5fb32e;
+  --input-background-color: #2a3038;
+  --input-type-hover: #ffffff;
+  --task-list-bg-color: #191c24;
+
+}
+
+body {
+  background-color: var(--background-color);
+
+}
+
+.active {
+  pointer-events: none;
+}
+
+.main-container {
+  position: relative;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+  background-color: var(--thresary-color);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  top: 0;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.hiIcon {
+  font-size: 22px;
+  transform: scale(-1, 1);
+  color: green;
+
+}
+
+/* -----------home page right side element styling----------------- */
+
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+
+/* ------------------for search box and icon---------------- */
+.search-box {
+  font-size: 14px;
+  height: 37px;
+  width: 300px;
+  color: var(--font-color);
+  background-color: var(--thresary-color);
+  padding: 0px 10px 0px 40px;
+  border: 1px solid var(--search-box-br-color);
+  transition: 0.2s;
+
+}
+
+.search-box:focus {
+  transition: 0.2s;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+.search-box::placeholder {
+  color: var(--font-color);
+}
+
+.search-icon {
+  color: var(--icon-color);
+}
+
+/* ---------------styling for left side elements----------- */
+
+.left-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+
+.left-section h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--font-color);
+
+}
+
+.left-section span {
+  font-size: 25px;
+  color: var(--font-color);
+  margin-left: 7px;
+  font-weight: 500;
+  text-transform: capitalize;
+
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+
+  to {
+    width: 10ch;
+  }
+}
+
+.left-section p {
+  font-size: 16px;
+  padding: 10px 0px;
+}
+
+/* --------------for icon ---------------- */
+.icons {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  color: var(--icon-color);
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.icons .logout {
+  color: var(--icon-color);
+}
+
+.right-icon {
+  cursor: pointer;
+}
+
+/* ---------------styling for add todo buttons---------------- */
+.mt-16 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 100px 0px 210px;
+}
+
+.add-todo-inner-section {
+  position: relative;
+}
+
+.add-todo-btn-section {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+}
+
+.add-btn {
+  cursor: pointer;
+  font-size: 32px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  color: white;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 250;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  transition: 0.2s;
+
+}
+
+.type-btn {
+  cursor: pointer;
+  max-width: none;
+}
+
+/* -----------below style for input type visible button (single or multiplr )------------------ */
+.rotate {
+  transition: 0.2s;
+  rotate: 44deg;
+}
+
+
+.add-btn:hover+.input-type {
+  display: block;
+} 
+
+ .input-type:hover {
+  display: block;
+}
+
+/* ------------styel for input type   div ----------- */
+.input-type {
+  position: absolute;
+  display: none;
+  animation-duration: 0.5s;
+  animation-name: showInputBox;
+  z-index: 1;
+  padding: 16px 0px 0px 0px;
+}
+
+@keyframes showInputBox {
+  0% {
+    top: 40px;
+  }
+
+  50% {
+    top: 55px;
+  }
+
+  75% {
+    top: 55px;
+  }
+
+  100% {
+    top: 55px;
+  }
+}
+
+/* ------------style for todo input child div------------------ */
+
+
+.input-type-btn {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.input-type-btn>span {
+  background-color: var(--thresary-color);
+  color: var(--primary-color);
+  border-radius: 0px 10px 10px 10px;
+  text-align: center;
+  line-height: 35px;
+  height: 35px;
+  width: 90px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+  display: none;
+}
+
+/* ============================For single form section============================ */
+
+/* ***************form design css is here after  *****************/
+:root {
+  --single-border-radius: 5px;
+}
+
+.single-input-form {
+  display: none;
+  position: fixed;
+  height: 28rem;
+  width: 35rem;
+  background-color: var(--thresary-color);
+  border-radius: var(--single-border-radius);
+  right: 25rem;
+  top: 25%;
+  padding: 0px 24px;
+  box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
+}
+
+.single-input-form p {
+  /* padding-left: 120px; */
+  color: var(--font-color);
+  font-weight: 500;
+  text-align: center;
+}
+
+.single-input-form label {
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+/* ---------close button for form---------------- */
+.close-btn {
+  cursor: pointer;
+  color: var(--close-btn-color);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--close-btn-border-color);
+  margin-left: 506px;
+  font-weight: bold;
+  border-radius: 0px 6px 0px 10px;
+}
+
+.close-habit-div {
+  margin: 5px 0px 0px 95%;  
+  border-radius: 0px 10px 0px 10px;
+}
+
+.close-btn:hover {
+  transition: 0.3s;
+  border-radius: var(--single-border-radius);
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+/* -----below style for task type(personal or professional)---------------- */
+.Task_Type {
+  display: flex;
+  gap: 10px;
+  margin-left: 6rem;
+  align-items: center;
+}
+
+.switchDiv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.switchDiv form {
+  display: flex;
+
+}
+
+.font-menu {
+  transition: 0.5s;
+  color: gray;
+  border-bottom: 4px solid var(--background-color);
+  font-weight: 500;
+  border-radius: 0px;
+}
+
+.font-menu:hover:not(.selectedCatagory) {
+  color: var(--icon-color);
+}
+
+.selectedCatagory {
+  transition: 0.9s;
+  border-radius: 0px;
+  border-bottom: 4px solid var(--primary-color);
+  font-weight: 500;
+  color: var(--primary-color);
+  animation: border_anim 1s linear forwards;
+}
+
+
+@keyframes border_anim {
+  0% {
+    width: 0%;
+  }
+
+  25% {
+    width: 100%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  75% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+.after\:content-\[\'\'\]::after {
+  --tw-content: '';
+  content: var(--tw-content);
+  background-color: var(--primary-color);
+}
+
+/* --------this below style is for inputs (todo input and date)------------ */
+.inputdiv div {
+  padding: 0px 0px 0px 120px;
+  gap: 10px;
+  display: grid;
+}
+
+.inputdiv input {
+  height: 35px;
+  width: 305px;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--single-border-radius);
+  background-color: white;
+  columns: var(--font-color);
+  padding: 0px 10px;
+}
+
+
+/* ------------below style is for our priority buttons-------------- */
+.matix {
+  display: flex;
+  gap: 60px;
+  margin-left: 120px;
+  margin-top: 25px;
+}
+
+.matix>div {
+  display: block;
+}
+
+.matix div input {
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.matix div input:hover {
+  background-color: var(--focus-color);
+}
+
+input[type='radio'] {
+  border-color: var(--primary-color);
+  accent-color: var(--primary-color);
+}
+
+button {
+  border-radius: var(--single-border-radius);
+}
+
+.inputdiv input:focus {
+  outline: none;
+}
+
+/* ---------single todo form submit button--------- */
+.single-input-form .submit-btn {
+  width: 175px;
+  height: 35px;
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--thresary-color);
+  font-size: 16px;
+  margin: 20px 0px 10px 160px;
+  cursor: pointer;
+}
+
+.single-input-form .submit-btn:hover {
+  transition: 0.2s;
+  box-shadow: #9b9c9a 0px 5px 15px;
+}
+
+/* =============================================================================================== */
+
+/* =====================below style for multi form section================= */
+
+.multiple-input-form {
+  position: absolute;
+  right: 13%;
+  top: 3%;
+  display: none;
+}
+
+/* -------multi input form close button styling--------- */
+
+:root {
+  --multi-border-radius: 7px;
+  --inputs-top-margin: 15px;
+}
+
+.main-div-closeBtn {
+  cursor: pointer;
+  color: var(--close-btn-color);
+  font-weight: 600;
+  border: 1px solid var(--close-btn-border-color);
+  width: fit-content;
+  padding: 2px 8px;
+  margin-left: 58rem;
+  border-radius: 0px 8px 0px 10px;
+
+}
+
+.main-div-closeBtn:hover {
+  transition: 0.3s;
+  border-radius: var(--multi-border-radius);
+  box-shadow: var(--shadow-color) 0px 0px 8px 0px;
+}
+
+/* ----------style for form inside of multi input div---------- */
+.multiple-input-form .multiple-forms-div {
+  width: 1000px;
+  background-color: var(--background-color);
+  padding: 8px 30px 25px 35px;
+  border-radius: var(--multi-border-radius);
+  margin-top: 20px;
+  border: 1px solid rgb(96, 148, 96);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.multiple-forms-div label {
+  color: var(--font-color);
+}
+
+.matix input {
+  color: var(--font-color);
+}
+
+/* ---------multi form one specific form closing button ----------- */
+.multi-close-btn {
+  cursor: pointer;
+  color: var(--primary-color);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--multi-border-radius);
+  border: 2px solid #656664;
+  margin-left: 890px;
+  font-weight: bold;
+}
+
+.multi-close-btn:hover {
+  transition: 0.2s;
+  color: var(--thresary-color);
+  background-color: var(--primary-color);
+}
+
+/* -----------input box styling---------- */
+.todo-input-box {
+  padding: 10px 0px;
+}
+
+.todo-input-box textarea {
+  font-size: 16px;
+  height: 85px;
+  width: 914px;
+  border: 1px solid #656664;
+  border-radius: var(--multi-border-radius);
+  padding: 10px;
+  overflow: auto;
+  resize: vertical;
+}
+
+.todo-input-box textarea:focus {
+  outline: none;
+  border-color: #52a521;
+}
+
+/* ----------other input styling--------- */
+.other-input-div {
+  display: flex;
+  gap: 60px;
+}
+
+.multi-task_type {
+  display: flex;
+  gap: 10px;
+  /* margin-left: 6rem; */
+  align-items: center;
+  margin-top: var(--inputs-top-margin);
+}
+
+.multi-task_type .typeBtn {
+  cursor: pointer;
+  height: 35px;
+  width: 25px;
+  border: 1px solid #656664;
+  color: #656664;
+  border-radius: var(--multi-border-radius);
+  color: var(--font-color);
+}
+
+.other-input-div input {
+  height: 35px;
+  border-radius: var(--multi-border-radius);
+  border: 1px solid #656664;
+  color: var(--font-color);
+  background-color: var(--input-background-color);
+}
+
+
+.multiDateTime {
+  padding: 0px 10px;
+  margin-top: var(--inputs-top-margin);
+  width: 225px;
+}
+
+.multiDateTime:focus {
+  outline: none;
+}
+
+/* ------------priority buttons styling----------- */
+.urgentDiv,
+.ImportantDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.urgentDiv>div,
+.ImportantDiv>div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 0px;
+}
+
+.urgentDiv input,
+.ImportantDiv input {
+  cursor: pointer;
+  width: 25px;
+}
+
+/* ------------multi form submit button styling--------- */
+.multiForm-btn-div {
+  display: flex;
+  justify-content: center;
+}
+
+.multiple-input-form .submit-btn {
+  height: 40px;
+  width: 120px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  font-weight: 400 !important;
+  color: var(--thresary-color);
+}
+
+.multiple-input-form .cancel-btn {
+
+  background-color: #82868B;
+  color: var(--thresary-color);
+}
+
+.multiple-input-form .submit-btn:hover {
+  transition: 0.2s;
+  box-shadow: var(--shadow-color) 0px 4px 10px;
+}
+
+.multiple-input-form .cancel-btn:hover {
+  transition: 0.2s;
+  box-shadow: #a7abaf 0px 4px 10px;
+}
+
+
+/* -------------add more button ---------- */
+.addOneMoreTodo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.addDivBtn {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--thresary-color);
+  font-size: 30px;
+  font-weight: 350;
+  border-radius: var(--multi-border-radius);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+
+}
+
+.addDivBtn:hover {
+  transition: 0.2s;
+  box-shadow: #abf381 0px 5px 15px;
+
+}
+
+/* ================================================================================ */
+
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  column-gap: 70px;
+  row-gap: 45px;
+  padding: 10px;
+}
+
+.main-card {
+  display: flex;
+  gap: 5px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: var(--thresary-color);
+  background-size: cover;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-div:nth-child(1)>.main-card>.card-color {
+  background-color: #99CC11;
+}
+
+.card-div:nth-child(2)>.main-card>.card-color {
+  background-color: #4588EE;
+
+}
+
+.card-div:nth-child(3)>.main-card>.card-color {
+  background-color: #F7A821;
+}
+
+.card-div:nth-child(4)>.main-card>.card-color {
+  background-color: #CE4317;
+}
+
+.card-color {
+  width: 25px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  padding: 15px 10px 10px 10px;
+}
+
+.card> :last-child {
+  position: absolute;
+  bottom: 5px;
+  left: 46%;
+}
+
+@media (min-width: 600px) {
+  .card {
+    height: 235px;
+  }
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+
+.title {
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.nameDateDiv {
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  gap: 35px;
+}
+
+
+.copy,
+.date {
+  color: var(--font-color);
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.showMoreBtn {
+  cursor: pointer;
+}
+
+.testing-window {
+  display: none;
+}
+.testing-window{
+  background-color: var(--background-color);
+}
+
+/* ===============  ================================================================= */
+
+/* notification list div */
+
+.Habitsdiv {
+  width: 350px;
+  display: none;
+  position: fixed;
+  min-height: 550px;
+  top: 12%;
+  left: 70%;
+  border-radius: 15px;
+  background-color: var(--input-type-hover);
+  color: var(--font-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  bottom: 140px;
+}
+
+.Habitsdiv .notification-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.Habitsdiv hr {
+  height: 1px;
+  background-color: #7f808a57;
+  border: none;
+
+}
+
+.Habitsdiv .notification-title .cancelicon {
+
+  cursor: pointer;
+  color: var(--close-btn-color);
+  font-weight: 600;
+  border: 1px solid var(--close-btn-border-color);
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 0px 10px 0px 10px;
+
+}
+
+.Habitsdiv .notification-title .cancelicon:hover {
+  transition: 0.3s;
+  border-radius: var(--single-border-radius);
+}
+
+.Habitsdiv .Tasklist {
+  justify-content: space-between;
+  display: flex;
+  background-color: #D9D9D9;
+  width: 302px;
+  height: 43px;
+  align-items: center;
+  margin: 15px 25px 0px 25px;
+  border-radius: 5px;
+  padding: 0px 15px;
+}
+
+button.removetask {
+  border: none;
+  cursor: pointer;
+  color: red;
+  background: none;
+}
+
+.showdiv {
+  display: block;
+  z-index: 1;
+}
+
+.activeBtn {
+  background-color: black;
+}
+
+/* ============================= this  block for the added todoinfo =========================*/
+
+
+.task-heading-2 {
+  padding: 10px 180px 10px 150px;
+
+}
+
+.task-inner-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* width: 45rem; */
+  padding: 15px 0px 15px 125px;
+
+}
+
+.completed-task-inner-div {
+  display: flex;
+  align-items: center;
+  gap: 11rem;
+  padding: 15px 230px 15px 20px;
+}
+
+.tasks-lists:hover {
+  background-color: rgb(214, 228, 214);
+}
+
+.second-div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 30px;
+}
+
+.list-name h5 {
+  font-size: 20px;
+  width: 21rem;
+}
+
+#due-date,
+.user-content {
+  font-size: 18px;
+  width: 160px;
+  color: var(--font-color);
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+
+.completedTask {
+  text-decoration: line-through;
+  text-decoration-color: var(--primary-color);
+}
+
+.cmt-section {
+  visibility: hidden;
+}
+
+.add-Cmt input {
+  position: relative;
+  width: 250px;
+  height: 43px;
+  background-color: var(--input-type-hover);
+  border-radius: 10px;
+  border: 1px solid #b0bdb0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 0px 40px 0px 15px;
+  outline: #52a521;
+}
+
+.addComentBtn{
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.add-Cmt #addComment {
+  border-radius: 8px;
+  padding: 16px 8px;
+  font-size: 8px;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.model-title {
+  visibility: hidden;
+}
+
+.make-changes {
+  display: flex;
+  gap: 20px;
+  visibility: hidden;
+}
+
+.add-comment-btn {
+  font-size: 30px;
+}
+
+.show {
+  visibility: visible;
+}
+
+.make-changes button {
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+
+.change {
+  display: flex;
+  gap: 58px;
+  align-items: flex-start;
+}
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked+label {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.round input[type="checkbox"]:checked+label:after {
+  opacity: 1;
+}
+
+
+.addvisibility {
+  visibility: visible;
+}
+
+/* ====================radio button style==================================== */
+
+.wrapper {
+  display: inline-flex;
+  height: 70px;
+  padding: 15px 13px;
+}
+
+.wrapper .option {
+  background: #fff;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 140px;
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.wrapper>input[type="radio"] {
+  display: none;
+}
+
+#option-1:checked:checked~.option-1,
+#option-2:checked:checked~.option-2 {
+  border-color: #5fb32e;
+  background: #5fb32e;
+}
+
+#option-1:checked:checked~.option-1 .dot,
+#option-2:checked:checked~.option-2 .dot {
+  background: #fff;
+}
+
+#option-1:checked:checked~.option-1 .dot::before,
+#option-2:checked:checked~.option-2 .dot::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wrapper .option span {
+  font-size: 16px;
+  color: #808080;
+}
+
+#option-1:checked:checked~.option-1 span,
+#option-2:checked:checked~.option-2 span {
+  color: #fff;
+
+}
+
+
+/* ------------------styling for our default todo portion (home page body content)--------------- */
+.body-mainDiv {
+  display: flex;
+  justify-content: center;
+
+}
+
+.Habits-div {
+  display: none;
+  position: fixed;
+  top: 20%;
+  right: 18%;
+}
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--thresary-color);
+  height: 500px;
+  width: 867px;
+  border-radius: 10px;
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+
+
+
+
+/* -----------styling for header ---------------- */
+.body-content h3 {
+  font-weight: 400;
+  font-size: 24px;
+  padding: 35px 282px 25px 45px;
+}
+
+/* -----------------main div for all the separate div styling------------- */
+.pre-define-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.pre-define-todo>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------inner separate div styling------------------ */
+.contents {
+  height: 62px;
+  width: 606px;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+}
+
+/* ------------for inner content p tag------------ */
+.contents p {
+  font-size: 16px;
+  color: var(--font-color);
+}
+
+/* -----------style for add text ----------- */
+.contents .add {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.contents .add:hover {
+  text-shadow: 2px 2px 8px #5fb32e;
+}
+
+.showdiv {
+  display: block;
+}
+
+.hidediv {
+  display: none;
+}
+
+button.completedBtn,
+.UncompletedBtn {
+  background-color: #E5F7EE;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+button.completedBtn:hover {
+  background-color: var(--primary-color);
+  color: var(--thresary-color);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+button.UncompletedBtn:hover {
+  background-color: var(--primary-color);
+  color: var(--thresary-color);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+
+.notification-success {
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  width: 270px;
+  justify-content: space-around;
+  border-radius: 5px;
+  display: flex;
+  position: absolute;
+  bottom: 102.5%;
+  left: 80%;
+  z-index: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.notifyIcon {
+  height: 30px;
+  width: 30px;
+}
+
+.notification-success>p {
+  margin-top: 5px;
+}
+
+#succcess {
+  display: none;
+}
+
+
+/* ==============edit form============================================ */
+
+.editForm {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  width: 350px;
+  height: 275px;
+  background-color: var(--thresary-color);
+  border-radius: var(--single-border-radius);
+  right: 36%;
+  top: 30%;
+  padding: 0px 24px;
+  box-shadow: #00000029 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px;
+}
+
+.updateCloseBtn {
+  cursor: pointer;
+  color: var(--close-btn-color);
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--close-btn-border-color);
+  margin-left: 296px;
+  font-weight: bold;
+  border-radius: 0px 6px 0px 10px;
+}
+
+.black-screen {
+  /* position: fixed; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 30%;
+  display: none;
+
+}
+
+
+/* ============================= Profile div ========================================= */
+.User_profile {
+  width: 35px;
+  border-radius: 100px;
+
+}
+
+.User_profile>img {
+  width: 35px;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+
+.settings {
+  position: fixed;
+  display: none;
+  background-color: var(--input-type-hover);
+  border-radius: 5px;
+  padding: 15px;
+  width: 225px;
+  left: 83%;
+  bottom: 71%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.Change-info {
+  display: flex;
+  align-items: center;
+  background-color: #F5F5F5;
+  padding: 4px 47px;
+  gap: 15px;
+  cursor: pointer;
+}
+.Change-info a{
+  display: flex;
+  gap: 15px;
+}
+.profile-div {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--thresary-color);
+  height: 489px;
+  width: 55%;
+  border-radius: 10px;
+  box-shadow: #63636333 0px 2px 8px 0px;
+}
+
+.profile-div {
+  position: fixed;
+  top: 22%;
+  right: 21%;
+  display: none;
+}
+
+.profile-div h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+/* .Profile-img {
+  display: flex;
+  gap: 20px;
+} */
+
+.Profile-img div img {
+  width: 100px;
+  border-radius: 100px;
+}
+
+.Profile-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-input div {
+  padding: 5px 0px 9px 0px;
+  gap: 10px;
+  display: grid;
+}
+
+.data-input div input {
+  padding: 0px 0px 0px 21px;
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+.data-input div p {
+  position: absolute;
+  left: 545px;
+  padding-top: 42px;
+  border-bottom: 2px solid #7F808A;
+  color: #7F808A;
+}
+
+.viewProfile {
+  display: block;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.showuserdata {
+  display: block;
+  z-index: 1;
+}
+
+
+.EditprofileBtns button {
+
+  color: white;
+  background-color: var(--primary-color);
+  width: 150px;
+  height: 35px;
+}
+
+.data-input div label {
+color: var(--font-color);
+}
+
+
+.EditprofileBtns {
+  padding: 5px 0px;
+}
+
+.showbtn {
+  display: block;
+}
+
+.hidebtn {
+  display: none;
+}
+
+
+.fetchedComment,.fetchedComments{
+  position: relative;
+  width: 250px;
+  height: 43px;
+  background-color: var(--input-type-hover);
+  border-radius: 10px;
+  border: 1px solid #b0bdb0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 0px 40px 0px 15px;
+  outline: #52a521;
+  text-align: inherit;
+  padding: 8px;
+}
+
+#modalBar{
+  /* visibility: hidden; */
+}
+.commentAddeds{
+  display: none;
+}
+.fetchedComments{
+  visibility: hidden;
+}
+input#comment{
+  position: relative;
+  top: 18px;
+}
+button#addComment {
+  /* position: absolute;
+  top: 17px;
+  right: 0px; */
+}
+.relativeDiv{
+  position: relative;
+}
+button#addComment{
+  /* position: absolute;
+  top: 125px;
+  right: 240px; */
+}
